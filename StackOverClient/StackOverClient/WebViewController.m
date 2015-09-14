@@ -1,28 +1,24 @@
 //
-//  BurgerMenuViewController.m
+//  WebViewController.m
 //  
 //
 //  Created by Jeffrey Jacka on 9/14/15.
 //
 //
 
-#import "BurgerMenuViewController.h"
-#import "QuestionSearchViewController.h"
 #import "WebViewController.h"
+@import WebKit;
 
-@interface BurgerMenuViewController ()
-
-@property (strong, nonatomic) UIViewController *topViewController;
-@property (strong, nonatomic) UIButton *burgerButton;
-@property (strong, nonatomic) NSArray *viewControllers;
-@property (strong, nonatomic) UIPanGestureRecognizer *panGesture;
+@interface WebViewController ()
 
 @end
 
-@implementation BurgerMenuViewController
+@implementation WebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
+  WKWebView *webView = [[WKWebView alloc] init];
   
   
 }
@@ -31,9 +27,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - UITableViewDelegate
-
-
 
 /*
 #pragma mark - Navigation

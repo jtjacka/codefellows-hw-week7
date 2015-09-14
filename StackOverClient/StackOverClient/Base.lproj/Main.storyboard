@@ -21,11 +21,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="497" y="443"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="MZu-0t-8wI">
             <objects>
-                <tableViewController id="DHv-5p-L0e" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainMenuVC" id="DHv-5p-L0e" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qfE-JH-oYL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +97,45 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPP-Qk-48M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1131" y="423"/>
+            <point key="canvasLocation" x="1227" y="443"/>
+        </scene>
+        <!--Question Search View Controller-->
+        <scene sceneID="im5-GL-OOq">
+            <objects>
+                <viewController storyboardIdentifier="QuestionSearchVC" id="XOu-Bu-At6" customClass="QuestionSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qL8-2O-1Ba"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eqy-aS-BLK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cbz-xZ-LcK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.066386950987103566" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hvc-tQ-3lp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1261" y="1181"/>
+        </scene>
+        <!--MyQuestionsVC-->
+        <scene sceneID="nMJ-gh-39D">
+            <objects>
+                <viewController title="MyQuestionsVC" id="Whe-f9-kut" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qOm-yG-ccj"/>
+                        <viewControllerLayoutGuide type="bottom" id="c9L-xb-nhJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Xc-zm-Jpu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VtK-Mc-yhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1985" y="1157"/>
         </scene>
     </scenes>
 </document>

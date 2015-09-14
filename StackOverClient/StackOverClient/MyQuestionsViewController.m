@@ -1,39 +1,28 @@
 //
-//  BurgerMenuViewController.m
+//  MyQuestionsViewController.m
 //  
 //
 //  Created by Jeffrey Jacka on 9/14/15.
 //
 //
 
-#import "BurgerMenuViewController.h"
-#import "QuestionSearchViewController.h"
-#import "WebViewController.h"
+#import "MyQuestionsViewController.h"
 
-@interface BurgerMenuViewController ()
-
-@property (strong, nonatomic) UIViewController *topViewController;
-@property (strong, nonatomic) UIButton *burgerButton;
-@property (strong, nonatomic) NSArray *viewControllers;
-@property (strong, nonatomic) UIPanGestureRecognizer *panGesture;
+@interface MyQuestionsViewController ()
 
 @end
 
-@implementation BurgerMenuViewController
+@implementation MyQuestionsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-  
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - UITableViewDelegate
-
-
 
 /*
 #pragma mark - Navigation
