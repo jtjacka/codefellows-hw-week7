@@ -121,7 +121,7 @@
         <!--MyQuestionsVC-->
         <scene sceneID="nMJ-gh-39D">
             <objects>
-                <viewController title="MyQuestionsVC" id="Whe-f9-kut" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyQuestionsVC" title="MyQuestionsVC" id="Whe-f9-kut" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qOm-yG-ccj"/>
                         <viewControllerLayoutGuide type="bottom" id="c9L-xb-nhJ"/>
@@ -130,7 +130,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.67450980390000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VtK-Mc-yhd" userLabel="First Responder" sceneMemberID="firstResponder"/>

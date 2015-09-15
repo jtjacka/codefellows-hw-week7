@@ -69,6 +69,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F985C341BA89AF200C70835 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1F985C351BA89AF700C70835 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1FEE0A521BA766C700C0345D /* Main.storyboard */,
+				1FEE0A551BA766C700C0345D /* Images.xcassets */,
+				1FEE0A571BA766C700C0345D /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1F985C361BA89AFB00C70835 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1FEE0A771BA77BC300C0345D /* WebViewController.h */,
+				1FEE0A781BA77BC300C0345D /* WebViewController.m */,
+				1FEE0A711BA769B100C0345D /* QuestionSearchViewController.h */,
+				1FEE0A721BA769B100C0345D /* QuestionSearchViewController.m */,
+				1FEE0A6E1BA766E700C0345D /* BurgerMenuViewController.h */,
+				1FEE0A6F1BA766E700C0345D /* BurgerMenuViewController.m */,
+				1FEE0A741BA7747C00C0345D /* MyQuestionsViewController.h */,
+				1FEE0A751BA7747C00C0345D /* MyQuestionsViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		1FEE0A3C1BA766C600C0345D = {
 			isa = PBXGroup;
 			children = (
@@ -90,19 +122,11 @@
 		1FEE0A471BA766C700C0345D /* StackOverClient */ = {
 			isa = PBXGroup;
 			children = (
-				1FEE0A771BA77BC300C0345D /* WebViewController.h */,
-				1FEE0A781BA77BC300C0345D /* WebViewController.m */,
-				1FEE0A711BA769B100C0345D /* QuestionSearchViewController.h */,
-				1FEE0A721BA769B100C0345D /* QuestionSearchViewController.m */,
-				1FEE0A6E1BA766E700C0345D /* BurgerMenuViewController.h */,
-				1FEE0A6F1BA766E700C0345D /* BurgerMenuViewController.m */,
-				1FEE0A741BA7747C00C0345D /* MyQuestionsViewController.h */,
-				1FEE0A751BA7747C00C0345D /* MyQuestionsViewController.m */,
+				1F985C361BA89AFB00C70835 /* Controller */,
+				1F985C351BA89AF700C70835 /* View */,
+				1F985C341BA89AF200C70835 /* Model */,
 				1FEE0A4C1BA766C700C0345D /* AppDelegate.h */,
 				1FEE0A4D1BA766C700C0345D /* AppDelegate.m */,
-				1FEE0A521BA766C700C0345D /* Main.storyboard */,
-				1FEE0A551BA766C700C0345D /* Images.xcassets */,
-				1FEE0A571BA766C700C0345D /* LaunchScreen.xib */,
 				1FEE0A481BA766C700C0345D /* Supporting Files */,
 			);
 			path = StackOverClient;
@@ -436,6 +460,7 @@
 				1FEE0A6A1BA766C700C0345D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FEE0A6B1BA766C700C0345D /* Build configuration list for PBXNativeTarget "StackOverClientTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +469,7 @@
 				1FEE0A6D1BA766C700C0345D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
