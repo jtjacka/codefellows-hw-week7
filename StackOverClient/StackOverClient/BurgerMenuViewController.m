@@ -60,6 +60,11 @@ CGFloat const kburgerButtonHeight = 50.0;
   self.panGesture = pan;
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+  WebViewController *webVC = [[WebViewController alloc] init];
+  [self presentViewController:webVC animated:true completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
