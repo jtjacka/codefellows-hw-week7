@@ -2,7 +2,7 @@
 
 target 'StackOverClient' do
 
-pod "AFNetworking"
+pod 'AFNetworking'
 
 end
 

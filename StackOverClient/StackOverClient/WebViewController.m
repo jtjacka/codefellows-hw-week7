@@ -37,6 +37,17 @@
     NSString *fullTokenParameter = components.firstObject;
     NSString *token = [fullTokenParameter componentsSeparatedByString:@"="].lastObject;
     NSLog(@"%@",token);
+    
+    //Save Token to NSUserDefaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:token forKey:@"StackOverFlowToken"];
+    
+    [defaults synchronize];
+    
+    [self dismissViewControllerAnimated:TRUE completion:^{
+      //do nothing?
+    }];
+    
   }
   decisionHandler(WKNavigationActionPolicyAllow);
 }

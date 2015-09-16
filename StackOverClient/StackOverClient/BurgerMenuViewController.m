@@ -61,8 +61,16 @@ CGFloat const kburgerButtonHeight = 50.0;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-  WebViewController *webVC = [[WebViewController alloc] init];
-  [self presentViewController:webVC animated:true completion:nil];
+  //Retrieve Token
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *token = [defaults objectForKey:@"StackOverFlowToken"];
+  
+  if(!token) {
+    WebViewController *webVC = [[WebViewController alloc] init];
+    [self presentViewController:webVC animated:true completion:nil];
+  }
+  
+
 }
 
 - (void)didReceiveMemoryWarning {

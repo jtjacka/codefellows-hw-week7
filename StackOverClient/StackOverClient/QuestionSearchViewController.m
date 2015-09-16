@@ -7,8 +7,15 @@
 //
 
 #import "QuestionSearchViewController.h"
+#import "StackOverflowService.h"
+#import "StackOverFlowParser.h"
+#import "Question.h"
 
-@interface QuestionSearchViewController ()
+@interface QuestionSearchViewController () <UITableViewDataSource, UISearchBarDelegate>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *questions;
 
 @end
 
@@ -17,11 +24,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+  
+  self.tableView.dataSource = self;
+  self.searchBar.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UISearchBarDelegate
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+  NSString *search = searchBar.text;
+  
+  [StackOverflowService questionsForSearchTerm:search completionHandler:^(NSArray *questions) {
+    self.questions = questions;
+    [self.tableView reloadData];
+  }];
+  
+}
+
+#pragma mark - UITableViewDataSource
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return self.questions.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell" forIndexPath:indexPath];
+
+  Question *currentQuestion = self.questions[indexPath.row];
+  
+  cell.textLabel.text = currentQuestion.title;
+  
+  return cell;
 }
 
 /*
