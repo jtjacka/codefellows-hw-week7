@@ -10,13 +10,14 @@
 #import "QuestionSearchViewController.h"
 #import "MyQuestionsViewController.h"
 #import "WebViewController.h"
+#import "ProfileViewController.h"
 
 //Constants
 CGFloat const kburgerOpenScreenDivider = 3.0;
 CGFloat const kburgerOpenScreenMultiplier = 2.0;
 NSTimeInterval const ktimeToSlideMenuOpen = 0.3;
-CGFloat const kburgerButtonWidth = 50.0;
-CGFloat const kburgerButtonHeight = 50.0;
+CGFloat const kburgerButtonWidth = 40.0;
+CGFloat const kburgerButtonHeight = 40.0;
 
 
 @interface BurgerMenuViewController () <UITableViewDelegate>
@@ -43,15 +44,18 @@ CGFloat const kburgerButtonHeight = 50.0;
   
   QuestionSearchViewController *questionSearchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionSearchVC"];
   MyQuestionsViewController *myQuestionsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyQuestionsVC"];
-  self.viewControllers = @[questionSearchVC,myQuestionsVC];
+  ProfileViewController *profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileVC"];
+  
+  self.viewControllers = @[questionSearchVC,myQuestionsVC,profileVC];
   
   [self addChildViewController:questionSearchVC];
   questionSearchVC.view.frame = self.view.frame;
   [self.view addSubview:questionSearchVC.view];
   self.topViewController = questionSearchVC;
   
-  UIButton *burgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kburgerButtonWidth,kburgerButtonHeight)];
-  [burgerButton setImage:[UIImage imageNamed:@"burger"] forState:UIControlStateNormal];
+  UIButton *burgerButton = [[UIButton alloc] initWithFrame:CGRectMake(5, 20, kburgerButtonWidth,kburgerButtonHeight)];
+  [burgerButton setImage:[UIImage imageNamed:@"menu"] forState:UIControlStateNormal];
+    [self.topViewController.view addSubview:burgerButton];
   [burgerButton addTarget:self action:@selector(burgerButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
   self.burgerButton = burgerButton;
   
