@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface StackOverFlowParser : NSObject
 
 +(NSArray  *)questionsFromJSONData:(NSDictionary *)data;
++(User *)userFromJSONData:(NSDictionary *)data;
 
 @end

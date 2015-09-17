@@ -8,7 +8,6 @@
 
 #import "StackOverFlowParser.h"
 #import "Question.h"
-#import "User.h"
 
 @implementation StackOverFlowParser
 

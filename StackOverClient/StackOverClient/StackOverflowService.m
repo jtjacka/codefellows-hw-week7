@@ -12,11 +12,16 @@
 #import <AFNetworking/AFNetworking.h>
 #import "Question.h"
 
+
 @implementation StackOverflowService
 
 +(void)questionsForSearchTerm:(NSString *)search completionHandler:(void(^)(NSArray *questions))completion{
   
-  NSString *url = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=%@&site=stackoverflow",search];
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *token = [defaults valueForKey:@"StackOverFlowToken"];
+  NSString *key = @"A6ou8P5JV8PhDqkimDAWdA((";
+  
+  NSString *url = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=%@&site=stackoverflow&key=%@&access_token=%@",search, key, token];
   
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   
@@ -32,6 +37,27 @@
     
   }];
   
+}
+
++(void)profileForCurrentUser:(void(^)(User *authenticatedUser))completion {
+  //Retrieve Access Token
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *token = [defaults valueForKey:@"StackOverFlowToken"];
+  NSString *key = @"A6ou8P5JV8PhDqkimDAWdA((";
+  
+  NSString *url = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/me?order=desc&sort=reputation&site=stackoverflow&key=%@&access_token=%@",key, token];
+  
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  
+  [manager GET:url parameters:nil success:^(AFHTTPRequestOperation * __nonnull operation, id __nonnull response) {
+    
+    NSArray *items = response[@"items"];
+    NSDictionary *user = items.firstObject;
+    User *currentUser = [StackOverFlowParser userFromJSONData:user];
+    completion(currentUser);
+  } failure:^(AFHTTPRequestOperation * __nonnull operation, NSError * __nonnull error) {
+    completion(nil);
+  }];
 }
 
 +(NSError *)errorForStatusCode:(NSInteger)statusCode {
@@ -109,6 +135,20 @@
   return nil;
 }
 
++(void)downloadUserProfileImage:(User *)currentUser completionHandler:(void(^)(User *currentUser))completion {
+  dispatch_group_t group = dispatch_group_create();
+  dispatch_queue_t profileImageQueue = dispatch_queue_create("me.jeffjacka.stackoverflow", DISPATCH_QUEUE_CONCURRENT);
+  
+  dispatch_group_async(group, profileImageQueue, ^{
+    NSString *avatarURL = currentUser.imageURL;
+    NSURL *imageURL = [NSURL URLWithString:avatarURL];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage *image = [UIImage imageWithData:imageData];
+    currentUser.image = image;
+    completion(currentUser);
+  });
+}
+
 +(void)downloadProfileImages:(NSArray *)questions completionHandler:(void(^)(NSArray *images, UIAlertController *alert))completion {
   dispatch_group_t group = dispatch_group_create();
   dispatch_queue_t imageQueue = dispatch_queue_create("me.jeffjacka.stackoverflow", DISPATCH_QUEUE_CONCURRENT);
@@ -136,8 +176,6 @@
     }];
     
     [alertController addAction:action];
-    
-    //TODO - Do something with this alert controller
     completion(profileImages, alertController);
   });
 }

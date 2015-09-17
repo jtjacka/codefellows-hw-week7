@@ -88,6 +88,14 @@ CGFloat const kburgerButtonHeight = 50.0;
   }];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (indexPath.row == 0) {
+    return 65;
+  }
+  
+  return 44;
+}
+
 -(void)topViewControllerPanned:(UIPanGestureRecognizer *)sender {
   
   CGPoint velocity = [sender velocityInView:self.topViewController.view];
