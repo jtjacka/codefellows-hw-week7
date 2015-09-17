@@ -23,5 +23,6 @@ typedef enum : NSUInteger {
   StackOverFlowInternalError = 500,
   StackOverFlowThrottleViolation = 502,
   StackOverFlowTemporarilyUnavaliable = 503,
-  StackOverFlowConnectionDown
+  StackOverFlowConnectionDown,
+  StackOverFlowGeneralCode
 } StackOverFlowErrorCodes;

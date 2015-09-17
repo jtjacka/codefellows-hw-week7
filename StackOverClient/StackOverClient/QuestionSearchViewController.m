@@ -10,12 +10,14 @@
 #import "StackOverflowService.h"
 #import "StackOverFlowParser.h"
 #import "Question.h"
+#import "QuestionCell.h"
 
 @interface QuestionSearchViewController () <UITableViewDataSource, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *questions;
+@property (strong, nonatomic) NSArray *profileImages;
 
 @end
 
@@ -41,6 +43,12 @@
   [StackOverflowService questionsForSearchTerm:search completionHandler:^(NSArray *questions) {
     self.questions = questions;
     [self.tableView reloadData];
+    
+    [StackOverflowService downloadProfileImages:self.questions completionHandler:^(NSArray *images, UIAlertController *alert) {
+      [self.tableView reloadData];
+      [self presentViewController:alert animated:true completion:nil];
+    }];
+    
   }];
   
 }
@@ -51,11 +59,20 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell" forIndexPath:indexPath];
+  QuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell" forIndexPath:indexPath];
 
   Question *currentQuestion = self.questions[indexPath.row];
   
-  cell.textLabel.text = currentQuestion.title;
+  cell.titleLabel.text = currentQuestion.title;
+  
+      [cell.activityIndicator startAnimating];
+  
+  if (currentQuestion.owner.image) {
+    [cell.activityIndicator stopAnimating];
+    cell.profileImage.image = currentQuestion.owner.image;
+  }
+  
+  
   
   return cell;
 }

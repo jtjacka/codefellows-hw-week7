@@ -6,10 +6,11 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface StackOverflowService : NSObject
 
 +(void)questionsForSearchTerm:(NSString *)search completionHandler:(void(^)(NSArray *questions))completion;
++(void)downloadProfileImages:(NSArray *)questions completionHandler:(void(^)(NSArray *images, UIAlertController *alert))completion;
 
 @end

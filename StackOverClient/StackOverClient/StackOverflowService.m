@@ -1,6 +1,6 @@
 //
 //  StackOverflowService.m
-//  
+//
 //
 //  Created by Jeffrey Jacka on 9/15/15.
 //
@@ -10,6 +10,7 @@
 #import "StackOverFlowParser.h"
 #import "Error.h"
 #import <AFNetworking/AFNetworking.h>
+#import "Question.h"
 
 @implementation StackOverflowService
 
@@ -35,10 +36,67 @@
 
 +(NSError *)errorForStatusCode:(NSInteger)statusCode {
   
+  NSInteger errorCode;
+  NSString *localizedDescription;
   
+  switch (statusCode) {
+    case 400:
+      localizedDescription = @"An invalid parameter was passed";
+      errorCode = StackOverFlowBadParameter;
+      break;
+    case 401:
+      localizedDescription = @"This method requires an access token";
+      errorCode = StackOverFlowAccessTokenRequired;
+      break;
+    case 402:
+      localizedDescription = @"Access token used is invalid";
+      errorCode = StackOverFlowInvalidAccessToken;
+      break;
+    case 403:
+      localizedDescription = @"This access token does not have the permission required";
+      errorCode = StackOverFlowAccessDenied;
+      break;
+    case 404:
+      localizedDescription = @"This method does not exist";
+      errorCode = StackOverFlowNoMethod;
+      break;
+    case 405:
+      localizedDescription = @"This method requires an application key";
+      errorCode = StackOverFlowKeyRequired;
+      break;
+    case 406:
+      localizedDescription = @"Access token has been compromised";
+      errorCode = StackOverFlowAccessTokenCompromised;
+      break;
+    case 407:
+      localizedDescription = @"Write operation was rejected";
+      errorCode = StackOverFlowWriteFailed;
+      break;
+    case 409:
+      localizedDescription = @"This request has already been run";
+      errorCode = StackOVerFlowDuplicateRequest;
+      break;
+    case 500:
+      localizedDescription = @"An unexpected error occured in the API";
+      errorCode = StackOverFlowInternalError;
+      break;
+    case 502:
+      localizedDescription = @"Too many attempts, too quickly";
+      errorCode = StackOverFlowThrottleViolation;
+    case 503:
+      localizedDescription = @"Request is temporarily unavaliable";
+      errorCode = StackOverFlowTemporarilyUnavaliable;
+      break;
+    
+    default:
+      localizedDescription = @"Could not complete operation, please try again later";
+      errorCode = StackOverFlowGeneralCode;
+      break;
+  }
   
+  NSError *error = [NSError errorWithDomain:kStackOverFlowErrorDomain code:errorCode userInfo:@{NSLocalizedDescriptionKey : localizedDescription}];
   
-  return [[NSError alloc] init];
+  return error;
 }
 
 +(NSError *)checkReachability {
@@ -49,6 +107,39 @@
   }
   
   return nil;
+}
+
++(void)downloadProfileImages:(NSArray *)questions completionHandler:(void(^)(NSArray *images, UIAlertController *alert))completion {
+  dispatch_group_t group = dispatch_group_create();
+  dispatch_queue_t imageQueue = dispatch_queue_create("me.jeffjacka.stackoverflow", DISPATCH_QUEUE_CONCURRENT);
+  
+  NSMutableArray *profileImages = [[NSMutableArray alloc] init];
+  
+  for (Question *question in questions) {
+    dispatch_group_async(group, imageQueue, ^{
+      NSString *avatarURL = question.owner.imageURL;
+      NSURL *imageURL = [NSURL URLWithString:avatarURL];
+      NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+      UIImage *image = [UIImage imageWithData:imageData];
+      question.owner.image = image;
+      
+      [profileImages addObject:image];
+    });
+  }
+  
+  
+  
+  dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Images Downloaded" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+      [alertController dismissViewControllerAnimated:true completion:nil];
+    }];
+    
+    [alertController addAction:action];
+    
+    //TODO - Do something with this alert controller
+    completion(profileImages, alertController);
+  });
 }
 
 @end
