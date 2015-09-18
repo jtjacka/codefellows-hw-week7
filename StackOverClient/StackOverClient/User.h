@@ -13,5 +13,9 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *imageURL;
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSString *location;
+@property (strong, nonatomic) NSNumber* age;
+@property (strong, nonatomic) NSNumber* reputation;
+@property (strong, nonatomic) NSString *website;
 
 @end

@@ -13,7 +13,6 @@
 		1F4051E11BA8BDF5008FC158 /* StackOverflowService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4051E01BA8BDF5008FC158 /* StackOverflowService.m */; };
 		1F4051E41BA8C597008FC158 /* Error.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4051E31BA8C597008FC158 /* Error.m */; };
 		1FA2C00B1BAB456600EF81DD /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2C00A1BAB456600EF81DD /* MenuTableViewController.m */; };
-		1FAFD9A01BAA0A610076EA05 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFD99F1BAA0A610076EA05 /* ProfileViewController.m */; };
 		1FC627781BA9F64D00A94CDB /* QuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC627771BA9F64D00A94CDB /* QuestionCell.m */; };
 		1FEE0A4B1BA766C700C0345D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0A4A1BA766C700C0345D /* main.m */; };
 		1FEE0A4E1BA766C700C0345D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0A4D1BA766C700C0345D /* AppDelegate.m */; };
@@ -25,6 +24,7 @@
 		1FEE0A731BA769B100C0345D /* QuestionSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0A721BA769B100C0345D /* QuestionSearchViewController.m */; };
 		1FEE0A761BA7747C00C0345D /* MyQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0A751BA7747C00C0345D /* MyQuestionsViewController.m */; };
 		1FEE0A791BA77BC300C0345D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0A781BA77BC300C0345D /* WebViewController.m */; };
+		1FF009B81BAB62540049BDF8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF009B71BAB62540049BDF8 /* ProfileViewController.m */; };
 		C23A7B20EB1642A99F79192A /* libPods-StackOverClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B797C1AC5EB065EFEE623071 /* libPods-StackOverClient.a */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +52,6 @@
 		1F4051E31BA8C597008FC158 /* Error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Error.m; sourceTree = "<group>"; };
 		1FA2C0091BAB456600EF81DD /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		1FA2C00A1BAB456600EF81DD /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
-		1FAFD99E1BAA0A610076EA05 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		1FAFD99F1BAA0A610076EA05 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		1FC627761BA9F64D00A94CDB /* QuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCell.h; sourceTree = "<group>"; };
 		1FC627771BA9F64D00A94CDB /* QuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionCell.m; sourceTree = "<group>"; };
 		1FEE0A451BA766C700C0345D /* StackOverClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackOverClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +73,8 @@
 		1FEE0A751BA7747C00C0345D /* MyQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionsViewController.m; sourceTree = "<group>"; };
 		1FEE0A771BA77BC300C0345D /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		1FEE0A781BA77BC300C0345D /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		1FF009B61BAB62540049BDF8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		1FF009B71BAB62540049BDF8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3F8F0437659E281E4A4257F5 /* Pods-StackOverClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackOverClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-StackOverClient/Pods-StackOverClient.release.xcconfig"; sourceTree = "<group>"; };
 		B797C1AC5EB065EFEE623071 /* libPods-StackOverClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StackOverClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -141,8 +141,6 @@
 			children = (
 				1FA2C0091BAB456600EF81DD /* MenuTableViewController.h */,
 				1FA2C00A1BAB456600EF81DD /* MenuTableViewController.m */,
-				1FAFD99E1BAA0A610076EA05 /* ProfileViewController.h */,
-				1FAFD99F1BAA0A610076EA05 /* ProfileViewController.m */,
 				1FEE0A771BA77BC300C0345D /* WebViewController.h */,
 				1FEE0A781BA77BC300C0345D /* WebViewController.m */,
 				1FEE0A711BA769B100C0345D /* QuestionSearchViewController.h */,
@@ -151,6 +149,8 @@
 				1FEE0A6F1BA766E700C0345D /* BurgerMenuViewController.m */,
 				1FEE0A741BA7747C00C0345D /* MyQuestionsViewController.h */,
 				1FEE0A751BA7747C00C0345D /* MyQuestionsViewController.m */,
+				1FF009B61BAB62540049BDF8 /* ProfileViewController.h */,
+				1FF009B71BAB62540049BDF8 /* ProfileViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -361,12 +361,12 @@
 				1F1921511BA9E0190084D643 /* User.m in Sources */,
 				1FEE0A791BA77BC300C0345D /* WebViewController.m in Sources */,
 				1FEE0A4E1BA766C700C0345D /* AppDelegate.m in Sources */,
+				1FF009B81BAB62540049BDF8 /* ProfileViewController.m in Sources */,
 				1FEE0A731BA769B100C0345D /* QuestionSearchViewController.m in Sources */,
 				1FC627781BA9F64D00A94CDB /* QuestionCell.m in Sources */,
 				1F4051E41BA8C597008FC158 /* Error.m in Sources */,
 				1F4051E11BA8BDF5008FC158 /* StackOverflowService.m in Sources */,
 				1F1921541BA9E0760084D643 /* StackOverFlowParser.m in Sources */,
-				1FAFD9A01BAA0A610076EA05 /* ProfileViewController.m in Sources */,
 				1F19214E1BA9DFED0084D643 /* Question.m in Sources */,
 				1FEE0A4B1BA766C700C0345D /* main.m in Sources */,
 				1FA2C00B1BAB456600EF81DD /* MenuTableViewController.m in Sources */,

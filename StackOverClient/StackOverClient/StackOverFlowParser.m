@@ -36,6 +36,11 @@
   
   newUser.name = data[@"display_name"];
   newUser.imageURL = data[@"profile_image"];
+  newUser.location = data[@"location"];
+  newUser.age = data[@"age"];
+  newUser.reputation = data[@"reputation"];
+  newUser.location = data[@"location"];
+  newUser.website = data[@"website_url"];
   
   return newUser;
 }

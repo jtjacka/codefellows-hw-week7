@@ -39,6 +39,30 @@
   
 }
 
++(void)questionsForCurrentUser:(void(^)(NSArray *questions))completion{
+  
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *token = [defaults valueForKey:@"StackOverFlowToken"];
+  NSString *key = @"A6ou8P5JV8PhDqkimDAWdA((";
+  
+  NSString *url = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/me/questions?order=desc&sort=activity&site=stackoverflow&key=%@&access_token=%@", key, token];
+  
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  
+  [manager GET:url parameters:nil success:^(AFHTTPRequestOperation * __nonnull operation, id __nonnull response) {
+    NSLog(@"%ld", operation.response.statusCode);
+    
+    NSArray *questions = [StackOverFlowParser questionsFromJSONData:response];
+    
+    completion(questions);
+    
+  } failure:^(AFHTTPRequestOperation * __nonnull operation, NSError * __nonnull error) {
+    NSLog(@"Search has failed!");
+    
+  }];
+  
+}
+
 +(void)profileForCurrentUser:(void(^)(User *authenticatedUser))completion {
   //Retrieve Access Token
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

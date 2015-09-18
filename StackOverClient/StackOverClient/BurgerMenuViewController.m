@@ -34,6 +34,8 @@ CGFloat const kburgerButtonHeight = 40.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+  [self setNeedsStatusBarAppearanceUpdate];
+  
   UITableViewController *mainMenuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuVC"];
   mainMenuVC.tableView.delegate = self;
   
@@ -93,10 +95,9 @@ CGFloat const kburgerButtonHeight = 40.0;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  if (indexPath.row == 0) {
-    return 65;
+  if (indexPath.row == 0 && indexPath.section == 0) {
+    return 64;
   }
-  
   return 44;
 }
 
@@ -186,6 +187,13 @@ CGFloat const kburgerButtonHeight = 40.0;
   if(![newVC isEqual:self.topViewController]) {
     [self switchToViewController:newVC];
   }
+  
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+  return UIStatusBarStyleLightContent;
 }
 
 /*

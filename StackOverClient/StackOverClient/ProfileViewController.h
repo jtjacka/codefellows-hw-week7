@@ -2,12 +2,12 @@
 //  ProfileViewController.h
 //  
 //
-//  Created by Jeffrey Jacka on 9/16/15.
+//  Created by Jeffrey Jacka on 9/17/15.
 //
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UITableViewController
 
 @end
