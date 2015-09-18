@@ -24,7 +24,7 @@
 		1FEE0A731BA769B100C0345D /* QuestionSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0A721BA769B100C0345D /* QuestionSearchViewController.m */; };
 		1FEE0A761BA7747C00C0345D /* MyQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0A751BA7747C00C0345D /* MyQuestionsViewController.m */; };
 		1FEE0A791BA77BC300C0345D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0A781BA77BC300C0345D /* WebViewController.m */; };
-		1FF009B81BAB62540049BDF8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF009B71BAB62540049BDF8 /* ProfileViewController.m */; };
+		1FF009B81BAB62540049BDF8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF009B71BAB62540049BDF8 /* ProfileViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C23A7B20EB1642A99F79192A /* libPods-StackOverClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B797C1AC5EB065EFEE623071 /* libPods-StackOverClient.a */; };
 /* End PBXBuildFile section */
 

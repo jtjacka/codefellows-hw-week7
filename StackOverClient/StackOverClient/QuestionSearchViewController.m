@@ -41,6 +41,9 @@
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
   NSString *search = searchBar.text;
   
+  //Replace Spaces
+  search  = [search stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+  
   [StackOverflowService questionsForSearchTerm:search completionHandler:^(NSArray *questions) {
     self.questions = questions;
     [self.tableView reloadData];

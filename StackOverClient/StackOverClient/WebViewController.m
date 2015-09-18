@@ -25,7 +25,7 @@
   NSString *baseURL = @"https://stackexchange.com/oauth/dialog";
   NSString *clientID = @"5567";
   NSString *redirectURI = @"https://stackexchange.com/oauth/login_success";
-  NSString *finalURL = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@", baseURL, clientID, redirectURI];
+  NSString *finalURL = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&no_expiry", baseURL, clientID, redirectURI];
   [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:finalURL]]];
 }
 

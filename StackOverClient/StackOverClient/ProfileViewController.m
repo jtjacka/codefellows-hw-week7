@@ -12,12 +12,12 @@
 
 @interface ProfileViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *reputationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *websiteLabel;
+@property (assign, nonatomic) IBOutlet UIImageView *profileImage;
+@property (assign, nonatomic) IBOutlet UILabel *nameLabel;
+@property (assign, nonatomic) IBOutlet UILabel *locationLabel;
+@property (assign, nonatomic) IBOutlet UILabel *ageLabel;
+@property (assign, nonatomic) IBOutlet UILabel *reputationLabel;
+@property (assign, nonatomic) IBOutlet UILabel *websiteLabel;
 
 
 @end
@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-  self.tableView.tableFooterView = [[UIView alloc] init];
+  self.tableView.tableFooterView = [[[UIView alloc] init] autorelease];
   
   [StackOverflowService profileForCurrentUser:^(User *authenticatedUser) {
     self.nameLabel.text = authenticatedUser.name;
@@ -50,6 +50,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc {
+  [super dealloc];
+  
+  //Deallocate some shit
+  
 }
 
 @end
