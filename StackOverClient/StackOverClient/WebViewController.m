@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
+  self.isConnecting = true;
     // Do any additional setup after loading the view.
   WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.frame];
   [self.view addSubview:webView];
@@ -43,6 +45,7 @@
     [defaults setObject:token forKey:@"StackOverFlowToken"];
     
     [defaults synchronize];
+    self.isConnecting = false;
     
     [self dismissViewControllerAnimated:TRUE completion:^{
       //do nothing?
@@ -66,5 +69,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)dealloc{
+  [self removeObserver:self.mainMenuVC forKeyPath:@"isConnecting" context:nil];
+}
 
 @end

@@ -10,6 +10,8 @@
 #import "StackOverflowService.h"
 #import "User.h"
 
+static void *isConnectingContext = &isConnectingContext;
+
 @interface MenuTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
@@ -21,8 +23,12 @@
 
 @implementation MenuTableViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+  //Sign Up for KVO Observing
+  
   
     //Remove Extra Lines in Table View
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -43,6 +49,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+  
+    BOOL newValue = [(NSNumber *)change[NSKeyValueChangeNewKey] boolValue];
+    if (newValue) {
+      [self.activityIndicator startAnimating];
+    } else {
+      [self.activityIndicator stopAnimating];
+      [self viewDidLoad];
+    }
+    
 }
 
 @end

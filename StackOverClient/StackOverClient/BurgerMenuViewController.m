@@ -26,6 +26,7 @@ CGFloat const kburgerButtonHeight = 40.0;
 @property (strong, nonatomic) UIButton *burgerButton;
 @property (strong, nonatomic) NSArray *viewControllers;
 @property (strong, nonatomic) UIPanGestureRecognizer *panGesture;
+@property (strong, nonatomic) UITableViewController *mainMenuVC;
 
 @end
 
@@ -34,10 +35,12 @@ CGFloat const kburgerButtonHeight = 40.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+  
   [self setNeedsStatusBarAppearanceUpdate];
   
   UITableViewController *mainMenuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuVC"];
   mainMenuVC.tableView.delegate = self;
+  self.mainMenuVC = mainMenuVC;
   
   [self addChildViewController:mainMenuVC];
   mainMenuVC.view.frame = self.view.frame;
@@ -73,7 +76,9 @@ CGFloat const kburgerButtonHeight = 40.0;
   
   if(!token) {
     WebViewController *webVC = [[WebViewController alloc] init];
+    webVC.mainMenuVC = self.mainMenuVC;
     [self presentViewController:webVC animated:true completion:nil];
+    [webVC addObserver:self.mainMenuVC forKeyPath:@"isConnecting" options:NSKeyValueObservingOptionNew context:nil];
   }
   
 
